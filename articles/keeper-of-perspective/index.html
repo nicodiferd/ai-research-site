@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Keeper of Perspective | AI Research</title>
+    <meta name="description" content="A watch that doesn't tell time — it tells perspective. Two engravings for two states of mind.">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --text: #e4e4e7;
+            --text-muted: #a1a1aa;
+            --accent: #f59e0b;
+            --accent-glow: rgba(245, 158, 11, 0.3);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: var(--accent); }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 2rem 4rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .meta {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        .meta span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        article {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            margin: 2.5rem 0 1rem;
+            color: #fff;
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+        }
+        
+        p { margin-bottom: 1.5rem; }
+        
+        .highlight {
+            background: var(--surface);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight p {
+            margin-bottom: 0;
+            font-style: italic;
+        }
+        
+        .watch-sides {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+        
+        .watch-side {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .watch-side.humility {
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+        
+        .watch-side.worth {
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        
+        .watch-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .watch-engraving {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+        
+        .watch-purpose {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        
+        .latin-box {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .latin-box h3 {
+            color: #8b5cf6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .wisdom-box {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .wisdom-box h3 {
+            color: #22c55e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .core-message {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+        
+        .core-message p {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+            color: #fff;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            .watch-sides {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">← Back to all articles</a>
+    
+    <header class="hero">
+        <h1>⌚ The Keeper of Perspective</h1>
+        <p class="subtitle">A watch that doesn't tell time — it tells perspective. Two engravings for two states of mind.</p>
+        <div class="meta">
+            <span>📱 Transcribed from TikTok</span>
+        </div>
+    </header>
+    
+    <article>
+        <p>The speaker carries a watch. But it's not for telling time.</p>
+        
+        <div class="highlight">
+            <p>"This one tells time. This one tells perspective."</p>
+        </div>
+        
+        <p>It has engravings on two sides — each serving a different purpose, addressing opposite ends of the same struggle we all face.</p>
+
+        <h2>The Two Sides</h2>
+        
+        <div class="watch-sides">
+            <div class="watch-side worth">
+                <div class="watch-icon">💚</div>
+                <div class="watch-engraving">"Comparison is the thief of joy"</div>
+                <div class="watch-purpose">For when I don't feel enough</div>
+            </div>
+            <div class="watch-side humility">
+                <div class="watch-icon">💀</div>
+                <div class="watch-engraving">"Memento Mori"</div>
+                <div class="watch-purpose">For when my ego gets too big</div>
+            </div>
+        </div>
+
+        <h2>When You Feel Not Enough</h2>
+        
+        <p>The speaker shares his past struggle:</p>
+        
+        <div class="highlight">
+            <p>"I used to feel uncomfortable in rooms like this, in front of people. I used to think I was not enough. I did not value self."</p>
+        </div>
+        
+        <div class="wisdom-box">
+            <h3>💚 "Comparison is the thief of joy"</h3>
+            <p>A quote often attributed to Theodore Roosevelt. When we measure ourselves against others, we rob ourselves of appreciating our own journey. The speaker uses this reminder when feeling of low self-worth: <em>"It reminds me that I am enough and I'm worthy of love."</em></p>
+        </div>
+
+        <h2>When Your Ego Grows Too Large</h2>
+        
+        <div class="latin-box">
+            <h3>💀 "Memento Mori"</h3>
+            <p>Latin for <strong>"Remember that you will die."</strong> An ancient Stoic practice of contemplating mortality — not to be morbid, but to stay grounded. Roman generals celebrating triumphs would have a servant whisper this phrase to them, reminding them they were still mortal despite their glory.</p>
+        </div>
+        
+        <p>The speaker uses this side of the watch to remember:</p>
+        
+        <div class="highlight">
+            <p>"I'm human and I am above no one. Always remember where I came from and remember those who support me — that I don't do it alone."</p>
+        </div>
+
+        <h2>The Balance</h2>
+        
+        <p>What makes this tool powerful is its duality. It addresses both extremes of the human condition:</p>
+        
+        <ul style="margin: 1.5rem 0; padding-left: 2rem;">
+            <li style="margin-bottom: 0.75rem;"><strong>Feeling too small?</strong> → You are enough. Stop comparing.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Feeling too big?</strong> → You are mortal. Stay humble.</li>
+        </ul>
+        
+        <p>Most of us oscillate between these states. The watch serves as an anchor to the middle ground.</p>
+
+        <div class="core-message">
+            <p>⌚ "A keeper of perspective, not time."</p>
+        </div>
+
+    </article>
+    
+    <footer>
+        <p>Transcribed and formatted by AI</p>
+        <p style="margin-top: 1rem;"><a href="/">← Back to all articles</a></p>
+    </footer>
+</body>
+</html>

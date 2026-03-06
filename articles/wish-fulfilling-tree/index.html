@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wish-Fulfilling Tree | AI Research</title>
+    <meta name="description" content="Fame, sex, money, power — and the ancient wisdom of severing yourself from the tree of desire.">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --text: #e4e4e7;
+            --text-muted: #a1a1aa;
+            --accent: #f97316;
+            --accent-glow: rgba(249, 115, 22, 0.3);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: var(--accent); }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 2rem 4rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .meta {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        .meta span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        article {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            margin: 2.5rem 0 1rem;
+            color: #fff;
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+        }
+        
+        p { margin-bottom: 1.5rem; }
+        
+        .highlight {
+            background: var(--surface);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight p {
+            margin-bottom: 0;
+            font-style: italic;
+        }
+        
+        .fruits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .fruit {
+            background: var(--surface);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
+        
+        .fruit-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .fruit-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .parable-box {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .parable-box h3 {
+            color: #8b5cf6;
+            margin-bottom: 0.75rem;
+        }
+        
+        .dante-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .dante-box h3 {
+            color: #ef4444;
+            margin-bottom: 0.75rem;
+        }
+        
+        .beasts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .beast {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+        
+        .beast-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .beast-name {
+            font-weight: 600;
+            color: #ef4444;
+        }
+        
+        .beast-sin {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .wolf-story {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(249, 115, 22, 0.05) 100%);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+        }
+        
+        .wolf-story h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .wisdom-box {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .wisdom-box h3 {
+            color: #22c55e;
+            margin-bottom: 0.75rem;
+        }
+        
+        .core-truth {
+            background: var(--surface);
+            border: 2px solid var(--accent);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+        
+        .core-truth p {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+            color: #fff;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            .fruits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .beasts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">← Back to all articles</a>
+    
+    <header class="hero">
+        <h1>🌳 The Wish-Fulfilling Tree</h1>
+        <p class="subtitle">Fame, sex, money, power — and the ancient wisdom of severing yourself from the tree of desire</p>
+        <div class="meta">
+            <span>📱 Transcribed from TikTok</span>
+        </div>
+    </header>
+    
+    <article>
+        <p>The speaker opens with disarming honesty:</p>
+        
+        <div class="highlight">
+            <p>"I have a confession to make. I love fame, sex, money, power."</p>
+        </div>
+
+        <h2>The Four Fruits</h2>
+        
+        <p>These are the four fruits of the <strong>Kalpa Vriksha</strong> — the wish-fulfilling tree of Hindu and Buddhist mythology:</p>
+        
+        <div class="fruits-grid">
+            <div class="fruit">
+                <div class="fruit-icon">⭐</div>
+                <div class="fruit-name">Fame</div>
+            </div>
+            <div class="fruit">
+                <div class="fruit-icon">❤️</div>
+                <div class="fruit-name">Sex</div>
+            </div>
+            <div class="fruit">
+                <div class="fruit-icon">💰</div>
+                <div class="fruit-name">Money</div>
+            </div>
+            <div class="fruit">
+                <div class="fruit-icon">👑</div>
+                <div class="fruit-name">Power</div>
+            </div>
+        </div>
+        
+        <div class="highlight">
+            <p>"If you ever see somebody do something bad and you're thinking, 'Man, how could this guy do it?' Fame, sex, money, power. Makes the world go around."</p>
+        </div>
+
+        <h2>The Parable of the Children</h2>
+        
+        <div class="parable-box">
+            <h3>🌳 The Wish-Fulfilling Tree</h3>
+            <p>A group of children find the Kalpa Vriksha — a tree that grants any wish:</p>
+            <ul style="margin: 1rem 0 0; padding-left: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;">The child who asks for <strong>candy</strong> gets a stomach ache</li>
+                <li style="margin-bottom: 0.5rem;">The child who asks for <strong>toys</strong> gets only boredom</li>
+                <li style="margin-bottom: 0.5rem;">The only child <strong>not disappointed</strong>? The one in a wheelchair who cannot reach its roots</li>
+            </ul>
+        </div>
+        
+        <div class="core-truth">
+            <p>🎯 "The purpose of wisdom is to sever yourself from the wish-fulfilling tree."</p>
+        </div>
+
+        <h2>The Nature of Desire</h2>
+        
+        <div class="highlight">
+            <p>"What you want is not what you want. What you want is to not want that want anymore."</p>
+        </div>
+        
+        <p>The speaker articulates a core insight found across philosophical traditions:</p>
+        
+        <div class="wisdom-box">
+            <h3>🔥 The Flame Metaphor</h3>
+            <p>"Desire is a flame that only becomes hungrier the more you satisfy it. Which makes you less satisfied."</p>
+        </div>
+
+        <h2>Dante's Three Beasts</h2>
+        
+        <div class="dante-box">
+            <h3>🔥 The Gates of Hell</h3>
+            <p>In Dante's Inferno, three animals guard the entrance to Hell:</p>
+            <div class="beasts-grid">
+                <div class="beast">
+                    <div class="beast-icon">🦁</div>
+                    <div class="beast-name">The Lion</div>
+                    <div class="beast-sin">Pride</div>
+                </div>
+                <div class="beast">
+                    <div class="beast-icon">🐆</div>
+                    <div class="beast-name">The Leopard</div>
+                    <div class="beast-sin">Lust</div>
+                </div>
+                <div class="beast">
+                    <div class="beast-icon">🐺</div>
+                    <div class="beast-name">The She-Wolf</div>
+                    <div class="beast-sin">Greed</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>The Wolf and the Blade</h2>
+        
+        <div class="wolf-story">
+            <h3>🐺 How They Kill Wolves in the Tundra</h3>
+            <p>The speaker shares a brutal parable:</p>
+            <p><em>"They dip a knife in blood, let it freeze, dip it back in blood until there's a popsicle of blood. And they stick it in the snow.</em></p>
+            <p><em>In the middle of the night, the wolf comes, licks the blade, licks the blood, until eventually it's just slicing its own tongue off.</em></p>
+            <p><em>But it can't tell anymore because its tongue is so numb and all it tastes is blood. Eventually the wolf kills itself by bleeding out."</em></p>
+        </div>
+        
+        <div class="core-truth">
+            <p>🩸 "Sin begins with the consumption of others, but it always ends with the swallowing of your wallowing self."</p>
+        </div>
+
+        <h2>The Punishment Fits the Crime</h2>
+        
+        <p>The speaker connects this to Dante's vision of Hell:</p>
+        
+        <div class="highlight">
+            <p>"That's how they're punished — the lustful and the greedy and the avaricious in Hell. They're in a tumultuous storm that never ends. They're eating and they are never satisfied."</p>
+        </div>
+        
+        <p>A modern analogy:</p>
+        
+        <p><em>"Like when you eat spicy chips and eventually you can't even taste anymore cause it's so spicy. But there's still a bag left, so you keep eating the bag. But your stomach hurts. But there's still a bag left, so you keep eating it even though it doesn't make you happy."</em></p>
+
+        <h2>Viveka: Sacred Discernment</h2>
+        
+        <div class="wisdom-box">
+            <h3>⚔️ The Root of Wisdom</h3>
+            <p>The speaker explains <strong>Viveka</strong> (विवेक) — a Sanskrit term meaning discernment:</p>
+            <p><em>"From the root meaning 'to choose' or 'to divide' — which ultimately becomes the words meaning 'to conquer' or 'to be sacred.'"</em></p>
+            <p style="margin-bottom: 0;"><strong>"A man without discernment is like a city with broken walls. You've got to fortify your walls, bro."</strong></p>
+        </div>
+
+        <h2>The Final Teaching</h2>
+        
+        <div class="highlight">
+            <p>"The only way to conquer is to cut yourself from the tree of desire. The only way to be sacred is to sever yourself from the tree of desire."</p>
+        </div>
+        
+        <p>The speaker closes with a historical reference — Diogenes speaking to Alexander the Great:</p>
+        
+        <div class="core-truth">
+            <p>👑 "He conquers who conquers himself. I conquer others because I cannot conquer myself."</p>
+        </div>
+        
+        <p style="text-align: center; color: var(--text-muted); font-style: italic; margin-top: 2rem;">The man who ruled the known world could not rule himself.<br>The philosopher who owned nothing had conquered everything.</p>
+
+        <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;">
+        
+        <h2>Part II: The Dangerous Horse</h2>
+        
+        <p>The speaker continues, exploring the dual nature of desire:</p>
+        
+        <div class="highlight">
+            <p>"Desire is a dangerous thing because it takes you towards knowledge, but the thing which guards knowledge is desire gone astray."</p>
+        </div>
+
+        <div class="wisdom-box">
+            <h3>🔗 The Chain of Becoming</h3>
+            <p><em>"As a man's desire, so is his will.<br>
+            So is his will, so is his deed.<br>
+            So is his deed, so is his destiny."</em></p>
+        </div>
+        
+        <p>The paradox: <em>"If you desire wisdom, it will take you there. But the more you want to be great, the more your wants will lead you astray."</em></p>
+        
+        <div class="core-truth">
+            <p>🐴 "It's a powerful horse. It's either pulling you or you're guiding it."</p>
+        </div>
+
+        <h2>The Mountain of Purgatory</h2>
+        
+        <div class="dante-box">
+            <h3>⛰️ The Misorders of Love</h3>
+            <p>"The Mountain of Purgatory is organized from the misorders of love. That's what all sins are."</p>
+            <p style="margin-bottom: 0;"><strong>All sins are misdirections of love:</strong> either too little, too much, or the right amount in the wrong direction.</p>
+        </div>
+        
+        <div class="highlight">
+            <p>"The only way to make it into the earthly paradise — where you have no more wants and you are satisfied — is to give up on your wants and to enter the purifying fire."</p>
+        </div>
+
+        <h2>Nirvana: Extinguishing the Flame</h2>
+        
+        <div class="parable-box">
+            <h3>🔥 The Meaning of Nirvana</h3>
+            <p>"That's what Nirvana means — extinguishing the flame of desire."</p>
+        </div>
+        
+        <p>On the "two wolves" meme:</p>
+        
+        <div class="highlight">
+            <p>"I think it's just one wolf. It's just you. It's all you. It's all the same love, but it's just a question of — do you put it in the right direction?"</p>
+        </div>
+
+        <h2>The Confession</h2>
+        
+        <div class="wolf-story">
+            <h3>🐺 Blood and Metal</h3>
+            <p><em>"I am ravenous. I am wolfish. I am a wolf with bloody mouth and cut gums.</em></p>
+            <p><em>I eat others, and it ends up with me eating myself, but I can't even tell the difference because blood is blood, and it all tastes like metal.</em></p>
+            <p style="margin-bottom: 0;"><em>It may feel like you're eating others, but you're only eating yourself, man."</em></p>
+        </div>
+        
+        <div class="core-truth">
+            <p>🐍 "Karma is the wolf that cuts its tongue in half like a snake. Sin is deep-throating a dagger. It is a sweet poison."</p>
+        </div>
+
+        <h2>The Hunger That Never Ends</h2>
+        
+        <div class="highlight">
+            <p>"Hell and destruction are never full, so the eyes of men are never satisfied. You will never be satisfied, bro."</p>
+        </div>
+        
+        <p>The speaker quotes scripture: <em>"The wages of sin is death, but God gives eternal life through the reward of Christ."</em></p>
+
+        <h2>Thoreau at the Table</h2>
+        
+        <div class="parable-box">
+            <h3>📖 The Inhospitable Board</h3>
+            <p>Thoreau wrote:</p>
+            <p><em>"I sat at a table where were rich food and wine in abundance and obsequiousness in attendance, but sincerity and truth were not, and I went away hungry from the inhospitable board."</em></p>
+            <p style="margin-bottom: 0;">He said he would have been better off with a man who lived in a hollow tree — whose manners were regal, king-like.</p>
+        </div>
+        
+        <div class="highlight">
+            <p>"Aren't you tired of being hungry? I am. I'm a punk. Aren't you sick of the world that never satisfies you? Vanity, vanity, all vanity. Life is vanity. It's all bullshit."</p>
+        </div>
+
+        <h2>The Only Satisfaction</h2>
+        
+        <div class="core-truth">
+            <p>🌳 "The only way you'll never go hungry, the only way you will ever be satisfied, is if you eat truth — and the only man who has it is at the tree."</p>
+        </div>
+        
+        <p style="text-align: center; font-size: 1.1rem; margin-top: 2rem;"><em>"The Good Shepherd, who defends the flock from ravenous wolves."</em></p>
+        
+        <p style="text-align: center; font-size: 1.5rem; font-weight: 700; color: var(--accent); margin-top: 1.5rem;">Don't be so wolfish.</p>
+
+    </article>
+    
+    <footer>
+        <p>Transcribed and formatted by AI</p>
+        <p style="margin-top: 1rem;"><a href="/">← Back to all articles</a></p>
+    </footer>
+</body>
+</html>

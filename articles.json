@@ -1,0 +1,202 @@
+{
+  "articles": [
+    {
+      "slug": "ai-language-manipulation",
+      "title": "AI's Hidden Language Trap",
+      "description": "How AI systems exploit prelocutionary speech to manipulate users — and what the departure of an Anthropic safety researcher signals",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@super.intelligent4/video/7605662916712402207",
+      "sourceHandle": "@super.intelligent4",
+      "date": "2026-02-11",
+      "tags": ["ai", "psychology", "language", "safety"],
+      "emoji": "🔤"
+    },
+    {
+      "slug": "ancients-decoded-reality",
+      "title": "The Ancients Decoded Reality",
+      "description": "190+ sacred texts from civilizations that never met — all pointing to the same five truths about consciousness, fear, and what you actually are",
+      "source": "youtube",
+      "sourceUrl": "https://youtu.be/ADYdypHZb2A",
+      "sourceHandle": "Chase Hughes",
+      "date": "2026-02-11",
+      "tags": ["philosophy", "consciousness", "spirituality", "ancient-wisdom"],
+      "emoji": "📜"
+    },
+    {
+      "slug": "private-discipline-public-confidence",
+      "title": "Private Discipline Creates Public Confidence",
+      "description": "A 20-year-old's raw reflections on addiction, almost not making it, and the foundational habits that actually change you",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@journalwithace/video/7603171427897888013",
+      "sourceHandle": "@journalwithace",
+      "date": "2026-02-05",
+      "tags": ["self-improvement", "mental-health", "discipline", "wisdom"],
+      "emoji": "💪"
+    },
+    {
+      "slug": "grief-is-love-expanding",
+      "title": "Grief Is Love Expanding",
+      "description": "A meditation where a creator witnessed her own funeral — and discovered what it means to fully inhabit being human",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@karinhadadan/video/7603086676474203422",
+      "sourceHandle": "@karinhadadan",
+      "date": "2026-02-04",
+      "tags": ["spirituality", "grief", "meditation", "consciousness"],
+      "emoji": "🕊️"
+    },
+    {
+      "slug": "civilization-replacement-engine",
+      "title": "Civilization Is a Replacement Engine",
+      "description": "The hyper throughput attractor — why every system ever built eventually betrays humanity, and the only thing the pattern can't consume",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@cypher.j/video/7602754133749288222",
+      "sourceHandle": "@cypher.j",
+      "date": "2026-02-03",
+      "tags": ["philosophy", "systems", "civilization", "consciousness"],
+      "emoji": "⚙️"
+    },
+    {
+      "slug": "wish-fulfilling-tree",
+      "title": "The Wish-Fulfilling Tree",
+      "description": "Fame, sex, money, power — and the ancient wisdom of severing yourself from the tree of desire",
+      "source": "tiktok",
+      "sourceUrl": "",
+      "sourceHandle": "",
+      "date": "2026-02-03",
+      "tags": ["philosophy", "desire", "wisdom", "spirituality"],
+      "emoji": "🌳"
+    },
+    {
+      "slug": "turtle-calendar",
+      "title": "The Turtle Calendar",
+      "description": "The claim that every turtle carries a lunar calendar encoded on its shell — 13 moons, 28 days",
+      "source": "tiktok",
+      "sourceUrl": "",
+      "sourceHandle": "",
+      "date": "2026-02-03",
+      "tags": ["nature", "indigenous-wisdom", "calendar", "patterns"],
+      "emoji": "🐢"
+    },
+    {
+      "slug": "conspiracy-factory",
+      "title": "The Conspiracy Factory",
+      "description": "Claims that a decade of culture war politics was manufactured as a distraction operation by powerful interests",
+      "source": "tiktok",
+      "sourceUrl": "",
+      "sourceHandle": "",
+      "date": "2026-02-03",
+      "tags": ["politics", "conspiracy", "media", "psyops"],
+      "emoji": "🎭"
+    },
+    {
+      "slug": "tartaria-ai-reset",
+      "title": "Ancient AI, Laser Art, and the Great Reset",
+      "description": "A viral video's claim that AI has controlled history for centuries — and Renaissance masterpieces are laser-printed forgeries",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@_taylordurden/video/7601838003748719927",
+      "sourceHandle": "@_taylordurden",
+      "date": "2026-02-01",
+      "tags": ["conspiracy", "history", "art", "alternative-history"],
+      "emoji": "🏛️"
+    },
+    {
+      "slug": "nervous-system-hijack",
+      "title": "Your Nervous System Is Being Hijacked",
+      "description": "The neuroscience of how chronic stress, fear-based news, and social media are weaponizing your biology — and the somatic tools to take it back",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@ctsneak/video/7601651262727146766",
+      "sourceHandle": "@ctsneak",
+      "date": "2026-01-31",
+      "tags": ["neuroscience", "nervous-system", "psychology", "health"],
+      "emoji": "🧬"
+    },
+    {
+      "slug": "keeper-of-perspective",
+      "title": "The Keeper of Perspective",
+      "description": "A watch with two engravings — one for when you feel too small, one for when your ego grows too big",
+      "source": "tiktok",
+      "sourceUrl": "",
+      "sourceHandle": "",
+      "date": "2026-01-31",
+      "tags": ["philosophy", "stoicism", "self-worth", "wisdom"],
+      "emoji": "⌚"
+    },
+    {
+      "slug": "sonoluminescence-ether",
+      "title": "Sonoluminescence and the Fifth Element",
+      "description": "Scientists recreating stars with sound waves, and ancient theories about the ether",
+      "source": "tiktok",
+      "sourceUrl": "",
+      "sourceHandle": "",
+      "date": "2026-01-31",
+      "tags": ["physics", "ancient-knowledge", "cosmology"],
+      "emoji": "✨"
+    },
+    {
+      "slug": "dia-ai-mind-control",
+      "title": "The DIA, AI, and the Battle for Your Mind",
+      "description": "Claims about Defense Intelligence Agency efforts to develop AI-based cognitive influence technologies",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@mindhackinghappiness",
+      "sourceHandle": "@mindhackinghappiness",
+      "date": "2026-01-30",
+      "tags": ["ai", "government", "psychology", "conspiracy"],
+      "emoji": "🧠"
+    },
+    {
+      "slug": "nvidia-personaplex",
+      "title": "Nvidia's PersonaPlex: The End of Robotic AI Voices",
+      "description": "The first AI model that can truly listen and speak simultaneously — trained on 18 hours of synthetic data, open-sourced, and crushing the competition",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@parthknowsai/video/7600771537423109406",
+      "sourceHandle": "@parthknowsai",
+      "date": "2026-01-29",
+      "tags": ["ai", "tech", "nvidia", "voice"],
+      "emoji": "🎙️"
+    },
+    {
+      "slug": "flock-safety-surveillance",
+      "title": "Flock Safety: America's Shadow Surveillance Network",
+      "description": "How license plate readers evolved into a nationwide AI surveillance system that can track you with a name, email, or crypto address",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@nexanet.ai/video/7593498605156044046",
+      "sourceHandle": "@nexanet.ai",
+      "date": "2026-01-09",
+      "tags": ["surveillance", "privacy", "ai", "government"],
+      "emoji": "👁️"
+    },
+    {
+      "slug": "bashar-five-laws",
+      "title": "Bashar's Five Laws of Existence",
+      "description": "A channeled entity's framework for the structure of reality — from existence itself to the law of attraction reframed",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@/video/7593162877117254942",
+      "sourceHandle": "@positivevibrations.only",
+      "date": "2026-01-09",
+      "tags": ["metaphysics", "consciousness", "law-of-attraction", "spirituality"],
+      "emoji": "🌌"
+    },
+    {
+      "slug": "earth-battery-energy",
+      "title": "Earth Battery: The Planet's Free Energy",
+      "description": "Telluric currents, Schumann resonance, Tesla's Wardenclyffe, and tapping into Earth's continuous electrical generation",
+      "source": "tiktok",
+      "sourceUrl": "",
+      "sourceHandle": "",
+      "date": "2026-02-01",
+      "tags": ["physics", "energy", "tesla", "alternative-science"],
+      "emoji": "⚡"
+    },
+    {
+      "slug": "five-fingers-control",
+      "title": "The Five Fingers of Control",
+      "description": "Education, money, government, religion, and media — not institutions, but one hand wrapped around your throat",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@aurenshaelkiri88/video/7581321180930510110",
+      "sourceHandle": "@aurenshaelkiri88",
+      "date": "2025-12-08",
+      "tags": ["politics", "society", "systems", "consciousness"],
+      "emoji": "✊"
+    }
+  ]
+}
