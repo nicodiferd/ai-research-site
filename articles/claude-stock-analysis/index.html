@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse-Engineering a 3-Prompt Stock Analysis Workflow | AI Research</title>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --text: #e4e4e7;
+            --text-muted: #a1a1aa;
+            --accent: #8b5cf6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { color: var(--accent); }
+        .hero { background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 3rem 2rem 4rem; text-align: center; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; margin-bottom: 1rem; background: linear-gradient(135deg, #fff 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero .subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+        .meta { margin-top: 2rem; padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border-radius: 8px; display: inline-block; font-size: 0.9rem; color: var(--text-muted); }
+        article { max-width: 750px; margin: 0 auto; padding: 3rem 2rem; }
+        h2 { font-size: 1.75rem; margin: 2.5rem 0 1rem; color: #fff; border-left: 3px solid var(--accent); padding-left: 1rem; }
+        h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; color: var(--accent); }
+        p { margin-bottom: 1.5rem; }
+        .highlight { background: var(--surface); border-left: 4px solid var(--accent); padding: 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0; }
+        .highlight p { margin-bottom: 0; font-style: italic; }
+        .box { padding: 1.5rem; border-radius: 8px; margin: 2rem 0; background: var(--surface); }
+        .concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .concept-card { background: var(--surface); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; padding: 1.25rem; }
+        .concept-card .label { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        .concept-card .value { font-weight: 600; color: #fff; }
+        ul, ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); }
+        footer a { color: var(--accent); text-decoration: none; }
+        .warning-box { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+        .warning-box h3 { color: #ef4444; margin-top: 0; }
+        .prompt-block { background: #07070b; border: 1px solid rgba(139,92,246,0.25); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1rem 0 2rem; font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace; font-size: 0.88rem; line-height: 1.65; white-space: pre-wrap; color: #d4d4d8; overflow-x: auto; }
+        .prompt-block .label { display: block; font-family: 'Inter', sans-serif; font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; font-weight: 600; }
+        .step-tag { display: inline-block; background: rgba(139,92,246,0.15); color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; margin-right: 0.5rem; }
+        .todo-box { background: rgba(234,179,8,0.08); border: 1px dashed rgba(234,179,8,0.4); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+        .todo-box h3 { color: #eab308; margin-top: 0; font-size: 1rem; }
+        .todo-box ul { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">&larr; Back to all articles</a>
+    <header class="hero">
+        <h1>🧪 The 3-Prompt Stock Analysis Workflow</h1>
+        <p class="subtitle">Reverse-engineering what @charan.invests is actually doing with Claude — and the reconstructable prompt templates to replicate it yourself</p>
+        <div class="meta">Instagram @charan.invests · ~47s reel · Apr 19, 2026</div>
+    </header>
+
+    <article>
+        <p>The reel is a 47-second pitch: the creator claims he uses Claude to find stocks like AAOI and Nebius before they run 100%+, and wants you to join his 15k-member Discord to get the prompts. The content is intentionally thin — the prompts themselves are the paywall.</p>
+
+        <p>But the creator narrates the <em>structure</em> of the workflow on camera, and the structure is the actually valuable part. The prompts can be rebuilt from the narration. That's what this page is for.</p>
+
+        <div class="highlight">
+            <p>The workflow is a three-step funnel: <strong>breadth → comparison → adversarial</strong>. It's the same pattern equity research analysts use, just expressed as prompts. Anyone can reconstruct it — the Discord is the convenience tax, not the IP.</p>
+        </div>
+
+        <h2>What He Actually Says On Camera</h2>
+
+        <p>Stripped of the marketing, here's the workflow he describes:</p>
+
+        <div class="concept-grid">
+            <div class="concept-card">
+                <div class="label">Prompt 1</div>
+                <div class="value">Deep Dive</div>
+                <p style="font-size:0.85rem; color: var(--text-muted); margin-top:0.5rem; margin-bottom:0;">Financials, asymmetry, and possible catalysts — outputs a "well-formatted" overview and a score</p>
+            </div>
+            <div class="concept-card">
+                <div class="label">Prompt 2</div>
+                <div class="value">Peer Comparison</div>
+                <p style="font-size:0.85rem; color: var(--text-muted); margin-top:0.5rem; margin-bottom:0;">Compare the target to its peers so the valuation can be sanity-checked ("does this actually make sense?")</p>
+            </div>
+            <div class="concept-card">
+                <div class="label">Prompt 3</div>
+                <div class="value">Bear Case</div>
+                <p style="font-size:0.85rem; color: var(--text-muted); margin-top:0.5rem; margin-bottom:0;">Surface the negatives — force the model out of cheerleader mode and into a red-team posture</p>
+            </div>
+        </div>
+
+        <p>That's the whole thing. Three passes. Each one asks the model to play a different role: researcher, relative-value analyst, short-seller. The scoring in step 1 is just a forcing function to make the model commit to a judgment instead of hedging.</p>
+
+        <h2>Why This Pattern Works (Independent of the Creator)</h2>
+
+        <p>LLMs default to being agreeable. If you ask "is NVDA a good buy?" in a single prompt, you'll get a balanced, hedged paragraph that's useless for decisions. Splitting analysis into three sequential prompts fixes three specific failure modes:</p>
+
+        <ul>
+            <li><strong>Single-shot bias:</strong> Asking "should I buy X" in one prompt lets the model average across perspectives. Forcing it through three separate lenses prevents averaging.</li>
+            <li><strong>Framing inertia:</strong> If step 1 frames the stock positively, the model carries that frame forward unless a new prompt resets it. Step 3 (bear case) explicitly flips the frame.</li>
+            <li><strong>Commitment device:</strong> A numerical score in step 1 creates an anchor you can compare across tickers. Without it, "looks decent" from one stock and "looks decent" from another are indistinguishable.</li>
+        </ul>
+
+        <p>This is why the workflow is worth rebuilding even though the reel is a Discord-funnel.</p>
+
+        <h2>Reconstructable Prompt Templates</h2>
+
+        <p>These are first-draft scaffolds to refine. They encode the structure the creator describes plus standard equity-research hygiene (explicit scope, structured output, source citations where possible). Treat them as starting points, not finished prompts.</p>
+
+        <h3><span class="step-tag">Step 1</span> Deep Dive</h3>
+
+        <div class="prompt-block"><span class="label">Template — fill in {TICKER}</span>You are an equity research analyst. Produce a deep dive on {TICKER}.
+
+Cover these sections in order, using headers:
+
+1. Business overview — what the company actually sells, who buys it, revenue mix.
+2. Financial snapshot — latest reported revenue, gross margin, operating margin, net income, FCF, net cash/debt. Flag if trailing vs. most recent quarter.
+3. Asymmetry — what is the plausible upside case vs. downside case over the next 12 months? Give a rough % range for each.
+4. Catalysts — specific upcoming events (earnings dates, product launches, regulatory decisions, contract cycles) that could move the stock.
+5. Score — rate the overall risk/reward on a 1-10 scale with a one-sentence justification.
+
+Rules:
+- If you don't know something recent, say "unknown as of training cutoff" rather than guessing.
+- Cite filing dates or sources when you quote a number.
+- Keep each section under 150 words. Total output should fit on one screen.</div>
+
+        <h3><span class="step-tag">Step 2</span> Peer Comparison</h3>
+
+        <div class="prompt-block"><span class="label">Template — fill in {TICKER} and {PEER_LIST}</span>You are a relative-value analyst. Compare {TICKER} to these peers: {PEER_LIST}.
+
+Build a table with one row per company and these columns:
+- Ticker
+- Market cap (approximate, OK)
+- Forward P/E or EV/EBITDA (use whichever is standard for the sector)
+- Revenue growth (last reported YoY %)
+- Gross margin
+- One-line qualitative note on business quality
+
+After the table, answer three questions:
+1. Where does {TICKER} sit on the cheap-to-expensive spectrum relative to peers?
+2. Is its multiple justified by its growth/margin profile, or is it a mispricing?
+3. Which single peer is the best direct comp, and why?
+
+Flag any numbers you're uncertain about. Don't fabricate peer data.</div>
+
+        <h3><span class="step-tag">Step 3</span> Bear Case</h3>
+
+        <div class="prompt-block"><span class="label">Template — fill in {TICKER}</span>You are a short-seller building a bear thesis on {TICKER}. Your job is to find reasons this stock could go down 30% or more. Be adversarial — do not hedge, do not give a "balanced view."
+
+Produce:
+
+1. Top 5 specific risks, ranked by how plausible and how damaging each one is. For each:
+   - What breaks the thesis
+   - What evidence would confirm it's happening
+   - Rough probability (low/med/high) and magnitude (small/medium/catastrophic)
+
+2. The single strongest bear argument — the one thing a short-seller would lead with.
+
+3. What's the cheapest way to disprove your own bear case? (i.e. what data point would make you abandon this thesis?)
+
+Do not include the bull case. Do not conclude with "however, on balance..." I want the pure bear side.</div>
+
+        <div class="todo-box">
+            <h3>📝 TODO — pick up here</h3>
+            <ul>
+                <li>Test all three prompts on a liquid ticker you already have conviction on (e.g. one you own), so you can sanity-check Claude's output against your own view.</li>
+                <li>Decide whether to use Claude with web search enabled vs. pure training-cutoff mode — financials from training are stale, so web search materially changes output quality.</li>
+                <li>Tune the scoring rubric in step 1. A 1-10 scale is vague; consider replacing with explicit criteria (e.g. "score 8+ requires: &gt;20% growth, &gt;60% gross margin, net cash position").</li>
+                <li>Decide on an output format for your own records. These prompts produce prose; you may want JSON so you can track scores over time in a spreadsheet.</li>
+                <li>Decide whether to chain these as three separate conversations (clean context each time) or one long conversation (model carries forward what it learned in step 1). Both have tradeoffs.</li>
+            </ul>
+        </div>
+
+        <h2>Caveats the Reel Doesn't Mention</h2>
+
+        <div class="warning-box">
+            <h3>What's missing from the pitch</h3>
+            <p><strong>Survivorship bias.</strong> AAOI and Nebius are named because they worked. The losses from tickers Claude scored 8/10 that went nowhere (or down) aren't in the reel. A 47-second pitch only shows the hits.</p>
+            <p><strong>LLMs don't have a realtime feed.</strong> Without web search enabled, Claude is pricing stocks off training-cutoff data. Any number it cites from memory could be 6+ months stale. This doesn't kill the workflow, but it means step 1 financials need a web-search tool or a live data paste to be reliable.</p>
+            <p><strong>"Scoring" is opinion, not signal.</strong> The score is the model's best guess at risk/reward, not a backtested metric. Two different phrasings of the same prompt can produce scores two points apart on the same stock.</p>
+            <p style="margin-bottom:0;"><strong>The Discord is the product.</strong> The creator's business model is the community and course upsell, not the prompts. The prompts are bait. Once you can rebuild them yourself, the asymmetry flips.</p>
+        </div>
+
+        <h2>The Meta-Lesson</h2>
+
+        <p>Every "AI prompt you have to pay for" that's pitched in a short-form video works like this. The creator narrates the workflow on camera because they have to — that's the demo. The narration is usually enough to reverse-engineer what the prompts do. The paywall is for people who don't want to think about it.</p>
+
+        <p>Ripping down prompts from reels is its own skill. The pattern to watch for: <em>what is the model being asked to do at each step, and what role is it being asked to play?</em> Once you have that, the specific wording is just polish.</p>
+
+        <h2>Full Transcript (for reference)</h2>
+
+        <div class="box" style="font-size:0.9rem; color: var(--text-muted);">
+            <p style="margin-bottom:0.75rem;">The creator opens by claiming he analyzes stocks with Claude in under 5 minutes, and that this method helped him find AAOI and Nebius before they ran 100%+, personally making him tens of thousands.</p>
+            <p style="margin-bottom:0.75rem;">He says the first prompt gives him a deep dive covering financials, asymmetry, and possible catalysts — outputting a well-formatted overview and a score for the stock.</p>
+            <p style="margin-bottom:0.75rem;">The second prompt compares the stock to its peers so he can see if the valuation actually makes sense. He cites using this on AAOI under $80 and finding it ranked higher than Lumentum and Coherent.</p>
+            <p style="margin-bottom:0.75rem;">The third prompt surfaces the negatives — the bear case for the stock.</p>
+            <p style="margin-bottom:0;">He closes by directing viewers to comment "discord" to join his 15,000-member community and get the actual prompts.</p>
+        </div>
+    </article>
+
+    <footer>
+        <p>Transcribed and reverse-engineered · <a href="https://www.instagram.com/reel/DXVPPZyjdkQ/" target="_blank">@charan.invests on Instagram</a></p>
+        <p style="margin-top: 1rem;"><a href="/">&larr; Back to all articles</a></p>
+    </footer>
+</body>
+</html>

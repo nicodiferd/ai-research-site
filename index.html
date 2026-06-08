@@ -233,6 +233,7 @@
 
         .source-badge.tiktok { color: #ff0050; }
         .source-badge.youtube { color: #ff0000; }
+        .source-badge.instagram { color: #e1306c; }
         .source-badge.article { color: #22c55e; }
 
         .date { font-size: 0.8rem; color: var(--text-muted); margin-left: auto; }
@@ -293,6 +294,7 @@
                 <button class="pill active" data-source="all">All</button>
                 <button class="pill" data-source="tiktok">📱 TikTok</button>
                 <button class="pill" data-source="youtube">▶️ YouTube</button>
+                <button class="pill" data-source="instagram">📸 Instagram</button>
             </div>
 
             <!-- Date filter -->
@@ -319,7 +321,7 @@
     </footer>
 
     <script>
-        const sourceIcons = { tiktok: '📱', youtube: '▶️', article: '📄', podcast: '🎙️' };
+        const sourceIcons = { tiktok: '📱', youtube: '▶️', instagram: '📸', article: '📄', podcast: '🎙️' };
 
         let allArticles = [];
         let activeSource = 'all';

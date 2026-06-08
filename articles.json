@@ -1,6 +1,252 @@
 {
   "articles": [
     {
+      "slug": "cooking-alexander-the-great",
+      "title": "Cooking for Alexander the Great",
+      "description": "A food-history short on what Alexander the Great actually ate — from a soldier's barley bread to Persian-court decadence — recreated as saffron rice and wine-and-garum lamb.",
+      "source": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=Swy4ET3v7M4",
+      "sourceHandle": "Tales From The Road",
+      "date": "2026-06-08",
+      "tags": [
+        "history",
+        "food",
+        "ancient-history"
+      ],
+      "emoji": "🍖"
+    },
+    {
+      "slug": "diy-laundry-detergent",
+      "title": "The $6 DIY Laundry Detergent That Lasts a Year",
+      "description": "A three-ingredient homemade laundry gel from grocery-store minerals — the full recipe, ratios, overnight gel trick, and the caveats the pitch glosses over.",
+      "source": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=SNzuRrTpONY",
+      "sourceHandle": "Sidney Explains",
+      "date": "2026-06-08",
+      "tags": [
+        "diy",
+        "laundry-detergent",
+        "budget",
+        "home-chemistry",
+        "how-to"
+      ],
+      "emoji": "🧺"
+    },
+    {
+      "slug": "john-cena-purpose",
+      "title": "John Cena on Purpose: Just Be Useful",
+      "description": "In 70 seconds, John Cena redefines purpose as simply being useful — and gives himself one daily test: did I earn the sunset?",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@pagsedits24/video/7633176183420603678",
+      "sourceHandle": "@pagsedits24",
+      "date": "2026-06-08",
+      "tags": [
+        "motivation",
+        "purpose",
+        "psychology",
+        "gratitude"
+      ],
+      "emoji": "🌅"
+    },
+    {
+      "slug": "manifestation-warning",
+      "title": "\"The Most Dangerous Thing I've Ever Posted\": A Manifestation Warning",
+      "description": "A creator with half a million followers shares his nightly manifestation method as a warning — claiming it works, calling it a monkey's paw, and begging viewers to only ever use it for good, never to control others.",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@streetlighteyesdontdie/video/7646699346095918350",
+      "sourceHandle": "@streetlighteyesdontdie",
+      "date": "2026-06-08",
+      "tags": [
+        "manifestation",
+        "spirituality",
+        "psychology",
+        "self-help",
+        "creator-warning"
+      ],
+      "emoji": "🕯️"
+    },
+    {
+      "slug": "mortgage-rates-to-epstein-class",
+      "title": "From Your Mortgage Rate to the Epstein Class",
+      "description": "A real estate agent traces one unbroken chain — your mortgage rate to the 10-year Treasury to inflation and war to builder greedflation to money printing to who owns the assets when the system cracks.",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@zacharyloft/video/7646552826641927438",
+      "sourceHandle": "@zacharyloft",
+      "date": "2026-06-08",
+      "tags": [
+        "finance",
+        "macro",
+        "housing",
+        "markets",
+        "interest-rates"
+      ],
+      "emoji": "🏚️"
+    },
+    {
+      "slug": "seven-deadly-sins-biology-of-decay",
+      "title": "The Seven Deadly Sins as a Biology of Decay",
+      "description": "A reframing of the seven deadly sins not as moral failings but as behaviors that physically accelerate aging and disease — and what their opposites might do for us.",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@zevinclark/video/7645796784001862943",
+      "sourceHandle": "@zevinclark",
+      "date": "2026-06-08",
+      "tags": [
+        "health",
+        "longevity",
+        "philosophy",
+        "stoicism",
+        "behavior-science"
+      ],
+      "emoji": "🩸"
+    },
+    {
+      "slug": "soros-reflexivity",
+      "title": "Soros's Reflexivity, Explained",
+      "description": "A 15-minute deep dive on Soros's reflexivity — why prices don't just reflect fundamentals but reshape them, the boom-bust sequence it produces, and where it's most dangerous (credit markets)",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@mispriced.assets/video/7630263824985230605",
+      "sourceHandle": "@mispriced.assets",
+      "date": "2026-06-08",
+      "tags": [
+        "finance",
+        "markets",
+        "investing",
+        "soros",
+        "reflexivity",
+        "psychology"
+      ],
+      "emoji": "🔄"
+    },
+    {
+      "slug": "claude-stock-analysis",
+      "title": "The 3-Prompt Stock Analysis Workflow",
+      "description": "Reverse-engineering what @charan.invests does with Claude — and the reconstructable prompt templates (deep dive → peer comparison → bear case) to replicate it yourself",
+      "source": "instagram",
+      "sourceUrl": "https://www.instagram.com/reel/DXVPPZyjdkQ/",
+      "sourceHandle": "@charan.invests",
+      "date": "2026-04-23",
+      "tags": [
+        "ai",
+        "prompts",
+        "investing",
+        "workflows",
+        "education"
+      ],
+      "emoji": "🧪"
+    },
+    {
+      "slug": "navy-dolphin-program",
+      "title": "The Dolphin That Punched Me in the Face",
+      "description": "A former Navy dolphin trainer's first-hand account of the Marine Mammal Program — where 600-pound bottlenose dolphins protect nuclear submarines, lie for food, and hold grudges",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@thewanderingbeard2.0/video/7626784039831145742",
+      "sourceHandle": "@thewanderingbeard2.0",
+      "date": "2026-04-12",
+      "tags": [
+        "military",
+        "animals",
+        "intelligence",
+        "storytelling"
+      ],
+      "emoji": "🐬"
+    },
+    {
+      "slug": "relationship-narrative-alignment",
+      "title": "The Story You Tell About Your Relationship",
+      "description": "Why narrative is almost as important as reality in relationships — and how negativity bias silently erodes even healthy partnerships",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@watchfulcoyote/video/7617966649899011342",
+      "sourceHandle": "@watchfulcoyote",
+      "date": "2026-04-12",
+      "tags": [
+        "psychology",
+        "relationships",
+        "negativity-bias",
+        "self-improvement"
+      ],
+      "emoji": "💔"
+    },
+    {
+      "slug": "influencer-personality-manufacturing",
+      "title": "They're Not Selling You Products, They're Selling You a Personality",
+      "description": "How corporations evolved past advertising into manufacturing consumer identities — and why Alex Earle's Netflix deal is the proof",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@dotties.journal/video/7618058004981665037",
+      "sourceHandle": "@dotties.journal",
+      "date": "2026-04-12",
+      "tags": [
+        "marketing",
+        "psychology",
+        "influencers",
+        "media"
+      ],
+      "emoji": "🎭"
+    },
+    {
+      "slug": "arbitrage-betting-mindset",
+      "title": "The Three Pillars of Professional Sports Betting",
+      "description": "A 20-year-old's framework for turning gambling into a $50k/month business — identity, emotion, and consistency — and the critical questions it leaves unanswered",
+      "source": "youtube",
+      "sourceUrl": "https://youtu.be/Df0z4bFTqlY",
+      "sourceHandle": "@choicooks",
+      "date": "2026-04-12",
+      "tags": [
+        "business",
+        "psychology",
+        "systems",
+        "discipline"
+      ],
+      "emoji": "💰"
+    },
+    {
+      "slug": "frequency-based-travel",
+      "title": "Movement Isn't Distance, It's Frequency",
+      "description": "Darryl Anka's explanation of how advanced beings don't travel through space — they change the variable of where they exist",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@antoinetteandfriends/video/7621646224302624031",
+      "sourceHandle": "@antoinetteandfriends",
+      "date": "2026-04-12",
+      "tags": [
+        "metaphysics",
+        "consciousness",
+        "physics",
+        "spirituality"
+      ],
+      "emoji": "🌌"
+    },
+    {
+      "slug": "competitive-advantage-reading",
+      "title": "Your Competitive Edge Isn't on the Internet",
+      "description": "Why reading the original titans of advertising and business gives you an unfair advantage over everyone consuming fifth-hand advice on social media",
+      "source": "tiktok",
+      "sourceUrl": "https://www.tiktok.com/@thedylpill/video/7625497077459586334",
+      "sourceHandle": "@thedylpill",
+      "date": "2026-04-12",
+      "tags": [
+        "business",
+        "reading",
+        "first-principles",
+        "self-improvement"
+      ],
+      "emoji": "📚"
+    },
+    {
+      "slug": "sedona-method-emotional-release",
+      "title": "Four Questions That Release Negative Emotion",
+      "description": "The Sedona Method — a deceptively simple framework for processing emotions instead of just expressing them",
+      "source": "instagram",
+      "sourceUrl": "https://www.instagram.com/reel/DW6O6PYgVrd/",
+      "sourceHandle": "@brooksbelieves",
+      "date": "2026-04-12",
+      "tags": [
+        "psychology",
+        "emotions",
+        "spirituality",
+        "wellness"
+      ],
+      "emoji": "🧘"
+    },
+    {
       "slug": "ai-language-manipulation",
       "title": "AI's Hidden Language Trap",
       "description": "How AI systems exploit prelocutionary speech to manipulate users — and what the departure of an Anthropic safety researcher signals",
@@ -8,7 +254,12 @@
       "sourceUrl": "https://www.tiktok.com/@super.intelligent4/video/7605662916712402207",
       "sourceHandle": "@super.intelligent4",
       "date": "2026-02-11",
-      "tags": ["ai", "psychology", "language", "safety"],
+      "tags": [
+        "ai",
+        "psychology",
+        "language",
+        "safety"
+      ],
       "emoji": "🔤"
     },
     {
@@ -19,7 +270,12 @@
       "sourceUrl": "https://youtu.be/ADYdypHZb2A",
       "sourceHandle": "Chase Hughes",
       "date": "2026-02-11",
-      "tags": ["philosophy", "consciousness", "spirituality", "ancient-wisdom"],
+      "tags": [
+        "philosophy",
+        "consciousness",
+        "spirituality",
+        "ancient-wisdom"
+      ],
       "emoji": "📜"
     },
     {
@@ -30,7 +286,12 @@
       "sourceUrl": "https://www.tiktok.com/@journalwithace/video/7603171427897888013",
       "sourceHandle": "@journalwithace",
       "date": "2026-02-05",
-      "tags": ["self-improvement", "mental-health", "discipline", "wisdom"],
+      "tags": [
+        "self-improvement",
+        "mental-health",
+        "discipline",
+        "wisdom"
+      ],
       "emoji": "💪"
     },
     {
@@ -41,7 +302,12 @@
       "sourceUrl": "https://www.tiktok.com/@karinhadadan/video/7603086676474203422",
       "sourceHandle": "@karinhadadan",
       "date": "2026-02-04",
-      "tags": ["spirituality", "grief", "meditation", "consciousness"],
+      "tags": [
+        "spirituality",
+        "grief",
+        "meditation",
+        "consciousness"
+      ],
       "emoji": "🕊️"
     },
     {
@@ -52,7 +318,12 @@
       "sourceUrl": "https://www.tiktok.com/@cypher.j/video/7602754133749288222",
       "sourceHandle": "@cypher.j",
       "date": "2026-02-03",
-      "tags": ["philosophy", "systems", "civilization", "consciousness"],
+      "tags": [
+        "philosophy",
+        "systems",
+        "civilization",
+        "consciousness"
+      ],
       "emoji": "⚙️"
     },
     {
@@ -63,7 +334,12 @@
       "sourceUrl": "",
       "sourceHandle": "",
       "date": "2026-02-03",
-      "tags": ["philosophy", "desire", "wisdom", "spirituality"],
+      "tags": [
+        "philosophy",
+        "desire",
+        "wisdom",
+        "spirituality"
+      ],
       "emoji": "🌳"
     },
     {
@@ -74,7 +350,12 @@
       "sourceUrl": "",
       "sourceHandle": "",
       "date": "2026-02-03",
-      "tags": ["nature", "indigenous-wisdom", "calendar", "patterns"],
+      "tags": [
+        "nature",
+        "indigenous-wisdom",
+        "calendar",
+        "patterns"
+      ],
       "emoji": "🐢"
     },
     {
@@ -85,7 +366,12 @@
       "sourceUrl": "",
       "sourceHandle": "",
       "date": "2026-02-03",
-      "tags": ["politics", "conspiracy", "media", "psyops"],
+      "tags": [
+        "politics",
+        "conspiracy",
+        "media",
+        "psyops"
+      ],
       "emoji": "🎭"
     },
     {
@@ -96,7 +382,12 @@
       "sourceUrl": "https://www.tiktok.com/@_taylordurden/video/7601838003748719927",
       "sourceHandle": "@_taylordurden",
       "date": "2026-02-01",
-      "tags": ["conspiracy", "history", "art", "alternative-history"],
+      "tags": [
+        "conspiracy",
+        "history",
+        "art",
+        "alternative-history"
+      ],
       "emoji": "🏛️"
     },
     {
@@ -107,7 +398,12 @@
       "sourceUrl": "https://www.tiktok.com/@ctsneak/video/7601651262727146766",
       "sourceHandle": "@ctsneak",
       "date": "2026-01-31",
-      "tags": ["neuroscience", "nervous-system", "psychology", "health"],
+      "tags": [
+        "neuroscience",
+        "nervous-system",
+        "psychology",
+        "health"
+      ],
       "emoji": "🧬"
     },
     {
@@ -118,7 +414,12 @@
       "sourceUrl": "",
       "sourceHandle": "",
       "date": "2026-01-31",
-      "tags": ["philosophy", "stoicism", "self-worth", "wisdom"],
+      "tags": [
+        "philosophy",
+        "stoicism",
+        "self-worth",
+        "wisdom"
+      ],
       "emoji": "⌚"
     },
     {
@@ -129,7 +430,11 @@
       "sourceUrl": "",
       "sourceHandle": "",
       "date": "2026-01-31",
-      "tags": ["physics", "ancient-knowledge", "cosmology"],
+      "tags": [
+        "physics",
+        "ancient-knowledge",
+        "cosmology"
+      ],
       "emoji": "✨"
     },
     {
@@ -140,7 +445,12 @@
       "sourceUrl": "https://www.tiktok.com/@mindhackinghappiness",
       "sourceHandle": "@mindhackinghappiness",
       "date": "2026-01-30",
-      "tags": ["ai", "government", "psychology", "conspiracy"],
+      "tags": [
+        "ai",
+        "government",
+        "psychology",
+        "conspiracy"
+      ],
       "emoji": "🧠"
     },
     {
@@ -151,7 +461,12 @@
       "sourceUrl": "https://www.tiktok.com/@parthknowsai/video/7600771537423109406",
       "sourceHandle": "@parthknowsai",
       "date": "2026-01-29",
-      "tags": ["ai", "tech", "nvidia", "voice"],
+      "tags": [
+        "ai",
+        "tech",
+        "nvidia",
+        "voice"
+      ],
       "emoji": "🎙️"
     },
     {
@@ -162,7 +477,12 @@
       "sourceUrl": "https://www.tiktok.com/@nexanet.ai/video/7593498605156044046",
       "sourceHandle": "@nexanet.ai",
       "date": "2026-01-09",
-      "tags": ["surveillance", "privacy", "ai", "government"],
+      "tags": [
+        "surveillance",
+        "privacy",
+        "ai",
+        "government"
+      ],
       "emoji": "👁️"
     },
     {
@@ -173,7 +493,12 @@
       "sourceUrl": "https://www.tiktok.com/@/video/7593162877117254942",
       "sourceHandle": "@positivevibrations.only",
       "date": "2026-01-09",
-      "tags": ["metaphysics", "consciousness", "law-of-attraction", "spirituality"],
+      "tags": [
+        "metaphysics",
+        "consciousness",
+        "law-of-attraction",
+        "spirituality"
+      ],
       "emoji": "🌌"
     },
     {
@@ -184,7 +509,12 @@
       "sourceUrl": "",
       "sourceHandle": "",
       "date": "2026-02-01",
-      "tags": ["physics", "energy", "tesla", "alternative-science"],
+      "tags": [
+        "physics",
+        "energy",
+        "tesla",
+        "alternative-science"
+      ],
       "emoji": "⚡"
     },
     {
@@ -195,7 +525,12 @@
       "sourceUrl": "https://www.tiktok.com/@aurenshaelkiri88/video/7581321180930510110",
       "sourceHandle": "@aurenshaelkiri88",
       "date": "2025-12-08",
-      "tags": ["politics", "society", "systems", "consciousness"],
+      "tags": [
+        "politics",
+        "society",
+        "systems",
+        "consciousness"
+      ],
       "emoji": "✊"
     }
   ]

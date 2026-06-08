@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soros's Reflexivity, Explained | AI Research</title>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --text: #e4e4e7;
+            --text-muted: #a1a1aa;
+            --accent: #8b5cf6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { color: var(--accent); }
+        .hero { background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 3rem 2rem 4rem; text-align: center; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; margin-bottom: 1rem; background: linear-gradient(135deg, #fff 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero .subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+        .meta { margin-top: 2rem; padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border-radius: 8px; display: inline-block; font-size: 0.9rem; color: var(--text-muted); }
+        article { max-width: 750px; margin: 0 auto; padding: 3rem 2rem; }
+        h2 { font-size: 1.75rem; margin: 2.5rem 0 1rem; color: #fff; border-left: 3px solid var(--accent); padding-left: 1rem; }
+        h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; color: var(--accent); }
+        p { margin-bottom: 1.5rem; }
+        .highlight { background: var(--surface); border-left: 4px solid var(--accent); padding: 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0; }
+        .highlight p { margin-bottom: 0; font-style: italic; }
+        .box { padding: 1.5rem; border-radius: 8px; margin: 2rem 0; background: var(--surface); }
+        .concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .concept-card { background: var(--surface); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; padding: 1.25rem; }
+        .concept-card .label { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        .concept-card .value { font-weight: 600; color: #fff; }
+        ul, ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); }
+        footer a { color: var(--accent); text-decoration: none; }
+        .warning-box { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+        .warning-box h3 { color: #ef4444; margin-top: 0; }
+        .prompt-block { background: #07070b; border: 1px solid rgba(139,92,246,0.25); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1rem 0 2rem; font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace; font-size: 0.88rem; line-height: 1.65; white-space: pre-wrap; color: #d4d4d8; overflow-x: auto; }
+        .prompt-block .label { display: block; font-family: 'Inter', sans-serif; font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; font-weight: 600; }
+        .step-tag { display: inline-block; background: rgba(139,92,246,0.15); color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; margin-right: 0.5rem; }
+        .todo-box { background: rgba(234,179,8,0.08); border: 1px dashed rgba(234,179,8,0.4); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+        .todo-box h3 { color: #eab308; margin-top: 0; font-size: 1rem; }
+        .todo-box ul { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">&larr; Back to all articles</a>
+    <header class="hero">
+        <h1>🔄 Soros's Reflexivity, Explained</h1>
+        <p class="subtitle">A 15-minute deep dive on the idea from <em>The Alchemy of Finance</em> — that prices don't just reflect fundamentals, they reshape them — and what that means for spotting bubbles in equities and private credit.</p>
+        <div class="meta">TikTok @mispriced.assets · ~15 min · Apr 19, 2026</div>
+    </header>
+
+    <article>
+        <p>Classical finance says markets digest information and converge on a price that reflects the underlying fundamentals. George Soros's 1987 book <em>The Alchemy of Finance</em> argues the reverse can be true: participants' biased perceptions actively <em>shape</em> the fundamentals they're supposed to be measuring. He calls this <strong>reflexivity</strong>.</p>
+
+        <div class="highlight">
+            <p>Reflexivity is a two-way feedback loop between what participants think and the situation they're participating in. Price doesn't just track value — a rising price can <em>create</em> the value that appears to justify it. The loop runs until it can't, and then it runs the other way.</p>
+        </div>
+
+        <p>The video walks through the mechanism, the boom-bust shape it produces, the philosophical floor underneath it (fallibility), and where it's most dangerous today (credit). This page reconstructs that argument.</p>
+
+        <h2>The Two Functions</h2>
+
+        <p>Reflexivity starts from a split in how participants relate to the world. We're not neutral observers of the market — we're inside it, doing two things at once:</p>
+
+        <div class="concept-grid">
+            <div class="concept-card">
+                <div class="label">Cognitive function</div>
+                <div class="value">Understand reality</div>
+                <p style="font-size:0.85rem; color: var(--text-muted); margin-top:0.5rem; margin-bottom:0;">The attempt to form an accurate picture of what's actually happening.</p>
+            </div>
+            <div class="concept-card">
+                <div class="label">Manipulative function</div>
+                <div class="value">Change reality</div>
+                <p style="font-size:0.85rem; color: var(--text-muted); margin-top:0.5rem; margin-bottom:0;">Also called the <em>participating</em> function — acting on the world to reshape it toward your interests.</p>
+            </div>
+        </div>
+
+        <p>Because both run simultaneously, neither can be clean. Your attempt to understand is contaminated by your attempt to act, and vice versa. The creator's worked example is <strong>Palantir</strong>: the stock goes up, so people conclude there must be something real in the technology, so the company wins more business, so its modeled growth rate rises, so more people buy the stock. The price move <em>manufactured</em> part of the fundamental it's supposedly pricing.</p>
+
+        <h2>Why Equilibrium Theory Falls Short</h2>
+
+        <p>The dominant 1980s framework was the efficient-market hypothesis — prices are right, and to beat them you'd need inside information (and in the Gordon-Gekko 80s, plenty of people did exactly that). Reflexivity is the counterpoint: if perceptions move fundamentals, there is no fixed equilibrium price for the market to converge on. The target moves because you're aiming at it.</p>
+
+        <h2>The Boom-Bust Sequence</h2>
+
+        <p>Reflexivity doesn't start from nothing. It rides an existing trend and a bias about that trend, then plays out in a recognizable order:</p>
+
+        <ol>
+            <li><strong>An underlying trend + a prevailing bias.</strong> Some genuine change in fundamentals (a technology, a cycle) plus a belief that reinforces it. Example: a decade of megacap tech outperformance (2010–2021), then AI arrives and people assume "that's just how things go."</li>
+            <li><strong>The bias isn't yet recognized as a bias.</strong> Tech <em>can</em> compound above the S&amp;P's ~10% for years — but the belief that it always will hasn't been named as the assumption it is.</li>
+            <li><strong>A growing divergence from fundamentals.</strong> Prices detach. NFL franchises trade at ~10x revenue on near-zero operating income; a private-equity buyer justifies it with media rights, gaming, restaurants, "and this partnership." The model is made to work.</li>
+            <li><strong>A moment of truth.</strong> Something — almost anything — forces participants to see the divergence. The bias is tested and found wanting. The self-reinforcing process stalls.</li>
+            <li><strong>The reversal.</strong> The loop runs in reverse. This is pro-cyclicality: when things go up people want more, when they go down people want out. Redemptions beg more redemptions; negative news begets more selling.</li>
+        </ol>
+
+        <h2>Fallibility: the Floor Underneath</h2>
+
+        <p>Reflexivity rests on something deeper Soros calls <strong>fallibility</strong>. In the natural sciences you can run controlled experiments and accumulate evidence until limitations are overcome. In economics — in any social science — you can't, because the act of participating changes the thing you're studying.</p>
+
+        <div class="highlight">
+            <p>Soros draws an analogy to Heisenberg: in quantum physics, observing a phenomenon disturbs it. In markets, the same is true of any edge — as soon as it's spoken about, it starts to decay. Someone else figures out how to implement it, and the edge goes to zero.</p>
+        </div>
+
+        <p>The creator extends this with two games. In <strong>baseball</strong>, pitchers chased swinging strikes north–south; hitters adjusted, so the advantage rotated east–west. In <strong>poker</strong>, players ground out perfect game-theory-optimal play to print money — until everyone played GTO, at which point the edge shifted to <em>exploitative</em> play: using bet sizing as information ("he's betting 3% of the pot, he doesn't have it"), then over-betting on reads that look bad in a vacuum but win the pot. The quadrants of improvement rotate; no edge holds still.</p>
+
+        <h2>Where Reflexivity Is Most Dangerous: Credit</h2>
+
+        <p>Equities are where reflexivity is most <em>visible</em> — and, for a retail trader with leverage, where you can get in and out quickly. But credit is where it's most powerful and most destructive, because the feedback loop is mechanical:</p>
+
+        <div class="box">
+            <p style="margin-bottom:0;">Banks lend against collateral → the collateral's value depends on market prices → more lending pushes collateral values up → which enables still more lending → which pushes values higher again. Run it in reverse and it's 2008.</p>
+        </div>
+
+        <p>The creator's view is that the regulated banking system isn't the locus of risk anymore — <strong>shadow banks</strong> are. The same knob-turning dynamic ("they push up the knobs, then borrow against the knobs") applies, with cheaper capital begetting more deployment begetting cheaper capital. He points at private credit specifically: businesses underwritten at ~9x leverage on EBITDA — "fake earnings" — where free-cash-flow conversion implies something closer to 12–15x. If 40% of enterprise value is debt, the enterprise value is too high; it's all debt.</p>
+
+        <div class="warning-box">
+            <h3>The squeeze can outlast you</h3>
+            <p style="margin-bottom:0;">Being right about a reflexive bust is not the same as surviving it. Michael Burry was squeezed for roughly three years (2007–2008) before the trade paid. The decline is self-reinforcing, but so is the mania on the way up — and it can stay irrational longer than your position can.</p>
+        </div>
+
+        <h2>The Practical Takeaway</h2>
+
+        <p>If prices affect fundamentals, then "buy low based on intrinsic value" can fail catastrophically — falling prices can damage the business itself. That's roughly the <em>opposite</em> of Ben Graham. The creator is careful to say he doesn't think reflexivity is 100% true; he's offering it as a counterpoint to the value-investing orthodoxy, not a replacement for it.</p>
+
+        <p>The trading corollary: a bubble ends fastest when it accelerates — when the move goes parabolic. When the parabola breaks, that's the signal to de-risk. Soros's own line: "When I see a bubble, I rush in and buy." But with discipline attached:</p>
+
+        <div class="highlight">
+            <p>Don't be sucked into the idea that because prices are going up, things must be good. It's the reverse — prices going up is what's <em>making</em> the narrative good. Stay nimble: if you think it's a blow-off top and it isn't, admit it and don't lose too much.</p>
+        </div>
+
+        <p>The blunt version he leaves on: prices going up means prices are going up, means there's money to be made. Everything else is the story we tell afterward.</p>
+
+        <h2>Full Transcript (summary for reference)</h2>
+
+        <div class="box" style="font-size:0.9rem; color: var(--text-muted);">
+            <p style="margin-bottom:0.75rem;">The creator frames the video as a deep dive on Soros's reflexivity from <em>The Alchemy of Finance</em> (1987), and plugs his own study site ("Windance Library") as a starting point for people asking how to get into finance — his answer is just "start reading."</p>
+            <p style="margin-bottom:0.75rem;">He defines reflexivity as a two-way feedback loop, contrasts it with efficient-market equilibrium, and illustrates with Palantir: rising price → assumed technological merit → more business → higher modeled growth → more buying.</p>
+            <p style="margin-bottom:0.75rem;">He lays out the boom-bust model (underlying trend + bias → unrecognized bias → divergence from fundamentals → moment of truth → reversal), using AI/tech and NFL-franchise valuations as examples, and ties pro-cyclicality to redemptions in credit vehicles.</p>
+            <p style="margin-bottom:0.75rem;">He grounds it in "fallibility," draws the Heisenberg analogy for decaying edges, and illustrates edge-rotation with baseball pitch sequencing and the GTO-to-exploitative shift in poker.</p>
+            <p style="margin-bottom:0;">He argues reflexivity is most dangerous in credit (collateral ↔ lending loop, shadow banks, 9x-leverage private credit, 2008, Burry's three-year squeeze), then closes on the practical lesson: watch for the parabola to break, de-risk, stay flexible, and don't confuse rising prices with good fundamentals.</p>
+        </div>
+    </article>
+
+    <footer>
+        <p>Transcribed and distilled · <a href="https://www.tiktok.com/@mispriced.assets/video/7630263824985230605" target="_blank">@mispriced.assets on TikTok</a></p>
+        <p style="margin-top: 1rem;"><a href="/">&larr; Back to all articles</a></p>
+    </footer>
+
+</body>
+</html>
